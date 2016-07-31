@@ -1,7 +1,115 @@
 STypingAnimation
 ===============
 
-An Objective-C typing animation class
+[![iOS 7.0+](https://img.shields.io/badge/ios-7.0+-green.svg?style=flat)](https://developer.apple.com/ios/)
+[![Objective-C 2.0+](https://img.shields.io/badge/objective--c-2.0+-red.svg?style=flat)](https://developer.apple.com/reference/objectivec)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/azurechen/ACTabScrollView/blob/master/LICENSE.md)
+
+An Objective-C typing animation class that mimics auto-typing in `UITextField`.
+
+DEMO
+----
+
+<img src="./Screenshots/typing-sample.gif" width = "288" alt="Demo" />
+
+
+Installation
+------------
+
+###CocoaPods
+
+This method is still not ready yet.
+
+###Manual
+
+1. Drag these two files into your project.
+
+  * `STypingAnimation.h`
+  * `STypingAnimation.m`
+ 
+2. Import the header file into your desired class *(view controller)*.
+
+  ```objective-c
+  #import "STypingAnimation.h"
+  ```
+
+3. Create a label using either Interface Builder or Programatically.
+
+  ####Interface Builder:
+
+  * Drag a `UILabel` object from the Object Library into your view controller.
+  * Link your `IBOutlet` to your class as a property
+  
+    ```objective-c
+    @property (weak, nonatomic) IBOutlet STypingAnimation *typingView;
+    ```
+    
+    Set the array of texts that you want to display by adding this code to `viewDidLoad` for example.
+    
+    ```objective-c
+    [self.typingView setTextArray:@[@"Hello World!",@"It's working!"]];
+    ```
+
+    That's it, run the project and see the results!
+    
+  ####Programatically
+
+  Create an instance of `STypingView` and provide it with your array of texts you want to display. Don't forget to add that subview to a view like below.
+   
+    ```objective-c
+    STypingAnimation *typingView = [[STypingAnimation alloc] initWithTextArray:@[@"Hello World!",@"It's working!"]];
+  [self.view addSubview:typingView];
+    ```
+    
+    That's it, just run the project and enjoy!
+    
+
+Customization
+-------------
+
+Assuming that you have a `typingView` object, you can do a lot of adjustment to the speed/effect of your animated label by modifying one of the following public properties:
+
+####Typing speed
+The speed of typing a letter measured in seconds. 
+
+```objective-c
+self.typingView.typingSpeed = 0.5;
+```
+
+####Cursor blink speed
+The time (in seconds) that it takes the cursor to perform a full blink (appear & disappear completely).
+
+```objective-c
+self.typingView.cursorBlinkSpeed = 0.5;
+```
+
+####Delay to start typing
+The time (in seconds) that the label waits before starting to type.
+
+```objective-c
+self.typingView.startTypingDelay = 0.5;
+```
+
+####Delay to start deleting
+The time (in seconds) that the label waits before starting to delete characters.
+
+```objective-c
+self.typingView.delayToStartDeleting = 0.5;
+```
+
+####Delay to start deleting
+The time (in seconds) that the label waits before starting to delete characters.
+
+```objective-c
+self.typingView.deletingSpeed = 0.1;
+```
+
+####Loop the animation
+A boolean that states if the animation should stop or repeat when all the texts in the array gets typed out.
+
+```objective-c
+self.typingView.loop = YES;
+```
 
 License
 -------
