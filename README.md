@@ -16,11 +16,11 @@ DEMO
 Installation
 ------------
 
-###CocoaPods
+####CocoaPods
 
 This method is still not ready yet.
 
-###Manual
+####Manual
 
 1. Drag these two files into your project.
 
