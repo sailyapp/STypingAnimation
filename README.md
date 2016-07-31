@@ -5,7 +5,7 @@ STypingAnimation
 [![Objective-C 2.0+](https://img.shields.io/badge/objective--c-2.0+-red.svg?style=flat)](https://developer.apple.com/reference/objectivec)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/azurechen/ACTabScrollView/blob/master/LICENSE.md)
 
-An Objective-C typing animation class that mimics auto-typing in `UITextField`.
+A fully customizable Objective-C typing animation view that mimics auto-typing in `UITextField`.
 
 DEMO
 ----
@@ -26,25 +26,31 @@ This method is still not ready yet.
 
   * `STypingAnimation.h`
   * `STypingAnimation.m`
- 
-2. Import the header file into your desired class *(view controller)*.
+
+Usage
+------------
+
+####Interface Builder:
+  
+1. Drag a `UILabel` object from the Object Library and drop it in your Storyboard.
+
+2. Set the `Class` to `STypingAnimation` in your Identity Inspector.
+
+  <img src="./Screenshots/usage.png" width = "800" alt="Demo" />
+
+3. Link your `IBOutlet` to your class as a property
+  
+  ```objective-c
+  @property (weak, nonatomic) IBOutlet STypingAnimation *typingView;
+  ```
+    
+4. Import the header file into your desired class *(view controller)*.
 
   ```objective-c
   #import "STypingAnimation.h"
   ```
-
-3. Create a label using either Interface Builder or Programatically.
-
-  ####Interface Builder:
-
-  * Drag a `UILabel` object from the Object Library into your view controller.
-  * Link your `IBOutlet` to your class as a property
   
-    ```objective-c
-    @property (weak, nonatomic) IBOutlet STypingAnimation *typingView;
-    ```
-    
-    Set the array of texts that you want to display by adding this code to `viewDidLoad` for example.
+5. Set the array of texts that you want to display by adding this code to `viewDidLoad` for example.
     
     ```objective-c
     [self.typingView setTextArray:@[@"Hello World!",@"It's working!"]];
@@ -52,9 +58,15 @@ This method is still not ready yet.
 
     That's it, run the project and see the results!
     
-  ####Programatically
+####Programatically
 
-  Create an instance of `STypingView` and provide it with your array of texts you want to display. Don't forget to add that subview to a view like below.
+1. Import the header file into your desired class *(view controller)*.
+
+  ```objective-c
+  #import "STypingAnimation.h"
+  ```
+  
+2. Create an instance of `STypingView` and provide it with your array of texts you want to display. Don't forget to add that subview to a view like below.
    
     ```objective-c
     STypingAnimation *typingView = [[STypingAnimation alloc] initWithTextArray:@[@"Hello World!",@"It's working!"]];
@@ -63,7 +75,6 @@ This method is still not ready yet.
     
     That's it, just run the project and enjoy!
     
-
 Customization
 -------------
 
