@@ -29,9 +29,10 @@
 #pragma mark - Designated Initializer
 
 - (instancetype)initWithTextArray:(NSArray *)array {
-  self = [super init];
+  self = [super initWithFrame:CGRectMake(0, 0, 300, 100)];
   if (self) {
     [self setTextArray:array];
+    [self awakeFromNib];
   }
   return self;
 }
